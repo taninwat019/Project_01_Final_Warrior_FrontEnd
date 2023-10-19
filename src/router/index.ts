@@ -14,6 +14,7 @@ import AdvisorService from '@/services/AdvisorService'
 import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 import AddAdvisor from '@/components/AddAdvisor.vue'
 import AdviseeListView from '@/views/AdviseeListView.vue'
+import AdviseeLayoutView from '@/views/details/AdviseeLayoutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -141,6 +142,52 @@ const router = createRouter({
         page: parseInt((route.query?.page as string) || '1')
       })
     },
+    {
+      path: '/advisee/:id',
+      name: 'advisee-layout',
+      component: AdviseeLayoutView,
+      props: true,
+      beforeEnter: (to) => {
+        const id: number = parseInt(to.params.id as string)
+        const studentStore = useStudentStore()
+        const advisorStore = useAdvisorStore()
+        StudentService.getStudentById(id)
+          .then((response) => {
+            studentStore.setStudent(response.data)
+            AdvisorService.getAdvisorById(Number(response.data.advisorId))
+              .then((response) => {
+                advisorStore.setAdvisor(response.data)
+              })
+              .catch((error) => {
+                console.log(error)
+                if (error.response && error.response.status === 404) {
+                  return { name: '404-resource', params: { resource: 'id' } }
+                }
+              })
+          })
+          .catch((error) => {
+            console.log(error)
+            if (error.response && error.response.status === 404) {
+              return { name: '404-resource', params: { resource: 'id' } }
+            }
+          })
+      },
+      children: [
+        {
+          path: '',
+          name: 'student-detail',
+          component: StudentDetailView,
+          props: true
+        },
+        {
+          path: 'advisor',
+          name: 'advisor-detail-student',
+          component: AdvisorDetailView,
+          props: true
+        },
+      ]
+    },
+    
     
   ],
   scrollBehavior(to, from, savedPosition) {
