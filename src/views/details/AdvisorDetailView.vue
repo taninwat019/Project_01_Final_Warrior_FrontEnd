@@ -39,7 +39,7 @@ defineProps({
       <router-link to="/advisor" class="text-blue-500 inline-block mx-4">
         <button @click="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back</button>
       </router-link>
-      <router-link to="/" class="text-blue-500 inline-block">
+      <router-link to="/advisee" class="text-blue-500 inline-block">
         <button @click="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Advisee</button>
       </router-link>
     </div>

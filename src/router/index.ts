@@ -13,7 +13,7 @@ import { useAdvisorStore } from '@/stores/advisor'
 import AdvisorService from '@/services/AdvisorService'
 import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 import AddAdvisor from '@/components/AddAdvisor.vue'
-import AdvisorInformation from '@/views/details/AdvisorInformation.vue'
+import AdviseeListView from '@/views/AdviseeListView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -134,10 +134,14 @@ const router = createRouter({
       component: AddAdvisor
     },
     {
-      path: '/advisorinformation',
-      name: 'advisorinformation',
-      component: AdvisorInformation
+      path: '/advisee',
+      name: 'advisee-list',
+      component: AdviseeListView,
+      props: (route) => ({
+        page: parseInt((route.query?.page as string) || '1')
+      })
     },
+    
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {

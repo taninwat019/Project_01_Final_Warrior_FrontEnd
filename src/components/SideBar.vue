@@ -43,9 +43,6 @@
           <router-link to="/advisor" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4">
             Advisor
           </router-link>
-          <router-link to="/admin" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white">
-            Admin
-          </router-link>
         </div>
         <div class="text-sm">
           <router-link to="/admin" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white">
