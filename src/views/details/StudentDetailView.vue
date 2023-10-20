@@ -23,6 +23,7 @@
       </div>
       <CommentForm class="mt-4" :studentId="student.id" />
       <CommentList class="mt-4" :studentId="student.id" :key="student.id" />
+      
     </div>
   </div>
 </template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps } from 'vue';
 import { Advisor } from '@/type';
-import Announcement from '@/components/Anouncement.vue'
+import Annoucement from '@/components/Annoucement.vue'
 
 
 defineProps({
@@ -44,8 +44,10 @@ defineProps({
           <button @click="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Advisee</button>
         </router-link>
       </div>
+      <Annoucement class=""></Annoucement>
     </div>
   </div>
+  
 </template>
 
 <style>
