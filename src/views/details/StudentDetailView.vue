@@ -24,6 +24,9 @@ defineProps({
           <p class="text-lg text-gray-600 mb-2">
             <span class="font-semibold">ID:</span> {{ student.id }}
           </p>
+          <p class="text-lg text-gray-600 mb-2">
+            <span class="font-semibold">Department:</span> {{ student.id }}
+          </p>
           <div class="text-lg text-gray-600 mb-4">
             <span class="font-semibold">Enrolled Courses:</span>
             <ul class="list-disc list-inside">
