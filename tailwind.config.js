@@ -17,7 +17,9 @@ module.exports = {
         '65451F': '#65451F',
         '8D7B68': '#8D7B68',
         'C8AE7D': '#C8AE7D',
-        'EAC696': '#EAC696'
+        'EAC696': '#EAC696',
+        'FFC288': '#FFC288',
+        'FCECDD': '#FCECDD'
       },
     },
   },

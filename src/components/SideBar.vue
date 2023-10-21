@@ -1,8 +1,8 @@
 <template>
   <div class="bg-gray-800">
-    <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6">
-      <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <span class="font-semibold text-xl tracking-tight">My App</span>
+    <nav class="flex items-center justify-between bg-FFC288 flex-wrap p-6">
+      <div class="flex items-center flex-shrink-0 text-black mr-6">
+        <span class="font-semibold text-xl tracking-tight"><img src="../components/image/Screenshot_2566-10-21_at_15.33.09-transformed.png" alt="Logo" class="h-10" /></span>
       </div>
       <div class="block lg:hidden">
         <button
@@ -37,15 +37,18 @@
         class="w-full flex-grow lg:flex lg:items-center lg:w-auto"
       >
         <div class="text-sm lg:flex-grow">
-          <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4">
+          <router-link to="/" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4">
             Student
           </router-link>
-          <router-link to="/advisor" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4">
+          <router-link to="/advisor" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4">
             Advisor
+          </router-link>
+          <router-link to="/announcement" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white mr-4">
+            Announcement
           </router-link>
         </div>
         <div class="text-sm">
-          <router-link to="/admin" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white">
+          <router-link to="/admin" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white">
             Log out
           </router-link>
         </div>
@@ -65,5 +68,5 @@ export default {
 </script>
 
 <style>
-/* Add your custom styles here */
+
 </style>

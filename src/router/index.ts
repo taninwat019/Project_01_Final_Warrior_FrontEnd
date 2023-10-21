@@ -15,6 +15,7 @@ import AdvisorDetailView from '@/views/details/AdvisorDetailView.vue'
 import AddAdvisor from '@/components/AddAdvisor.vue'
 import AdviseeListView from '@/views/AdviseeListView.vue'
 import AdviseeLayoutView from '@/views/details/AdviseeLayoutView.vue'
+import AnnouncePage from '@/views/AnnouncePage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -187,6 +188,11 @@ const router = createRouter({
         },
       ]
     },
+    {
+      path: '/announcement',
+      name: 'announcement',
+      component: AnnouncePage
+    }
     
     
   ],
