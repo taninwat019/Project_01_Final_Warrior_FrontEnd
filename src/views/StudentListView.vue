@@ -40,9 +40,9 @@ console.log(hasNextPage)
 <template>
   <main class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Student List</h1>
-     <router-link to="/addadvisor" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Add New Student</router-link>
+     <router-link to="/addadvisor" class="bg-FFC288 hover:bg-FEA82F text-white  py-2 px-4 rounded mb-4 inline-block">Add New Student</router-link>
     <div class="flex flex-row items-center justify-center mb-4">
-      <input class="search-input" type="text" placeholder="Search students"/>
+      <input class="search-input " type="text" placeholder="Search students"/>
     </div>
     <div class="flex flex-col items-center">
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
@@ -79,6 +79,10 @@ console.log(hasNextPage)
   margin: 0 auto;
 }
 
+.font-bold{
+  font-weight: bolder;
+}
+
 .search-container {
   display: flex;
   align-items: center;
@@ -95,9 +99,10 @@ console.log(hasNextPage)
   margin-right: 5px;
   justify-content: center;
 }
+
 .pagination-button {
   padding: 0.5rem 1rem;
-  background-color: #8D7B68;
+  background-color: #FFC288;
   color: white;
   border-radius: 0.25rem;
   transition: background-color 0.3s ease-in-out;
@@ -107,7 +112,7 @@ console.log(hasNextPage)
 }
 
 .pagination-button:hover {
-  background-color: #65451F;
+  background-color: #FEA82F;
 }
 
 @media (max-width: 767px) {

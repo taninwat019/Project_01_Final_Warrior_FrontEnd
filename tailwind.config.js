@@ -19,7 +19,10 @@ module.exports = {
         'C8AE7D': '#C8AE7D',
         'EAC696': '#EAC696',
         'FFC288': '#FFC288',
-        'FCECDD': '#FCECDD'
+        'FCECDD': '#FCECDD',
+        'FEA82F': '#FEA82F',
+        'FF6701': '#FF6701',
+        'FFBB5C': '#FFBB5C'
       },
     },
   },
