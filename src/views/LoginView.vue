@@ -1,39 +1,16 @@
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  data() {
-    return {
-      student: {
-        id: '',
-        password: '',
-      },
-    };
-  },
-  methods: {
-    login() {
-      // Add logic to send login data to the server
-      console.log('Login Data:', this.student);
-      // Add an API call to authenticate the student
-      // Example: axios.post('/api/login', this.student)
-    },
-  },
-});
-</script>
-
 <template>
-    <div class="container">
+  <div class="container">
       <div class="title">Login</div>
       
-      <form @submit.prevent="login">
+      <form @submit.prevent="onSubmit">
         <div class="user-details">
           <div class="input-box">
             <span class="details">ID </span>
-            <input v-model="student.id" type="text" id="id" placeholder="ID" required>
+            <input v-model="email" type="text" id="id" placeholder="ID" required>
           </div>
           <div class="input-box">
             <span class="details">Password </span>
-            <input v-model="student.password" type="password" id="password" placeholder="password" required />
+            <input v-model="password" type="password" id="password" placeholder="password" required />
           </div>
         </div>
         <div class="button">
@@ -42,10 +19,57 @@ export default defineComponent({
         <span class="details">Don't have account? </span><a class="register" href="Register">Register</a>
       </form>
     </div>
-  </template>
-  
-  <style scoped>
-  *{
+
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useField, useForm } from 'vee-validate';
+import { useAuthStore } from '@/stores/auth';
+import { useMessageStore } from '@/stores/message';
+import { useRouter } from 'vue-router';
+
+
+export default defineComponent({
+  setup() {
+    const authStore = useAuthStore();
+    const storeMessage = useMessageStore();
+    const router = useRouter();
+
+    const { handleSubmit } = useForm();
+
+    const { value: email } = useField('email');
+    const { value: password } = useField('password');
+
+    const onSubmit = handleSubmit(async () => {
+      try {
+        console.log("hh")
+        const response = await authStore.login(email.value, password.value);
+        console.log('Login response:', response);
+        // If login is successful, redirect to the desired page
+        router.push({ name: 'student-list' });
+      } catch (error) {
+        console.error('Error during login:', error);
+        storeMessage.updateMessage('Could not log in');
+        setTimeout(() => {
+          storeMessage.resetMessage();
+        }, 3000);
+      }
+    });
+
+    return {
+      email,
+      password,
+      onSubmit
+    };
+  }
+});
+
+</script>
+
+
+<style scoped>
+*{
     color: black;
     margin: 0;
     padding: 0;
@@ -157,5 +181,5 @@ export default defineComponent({
   .register {
     color: #FFC288;
   }
-  </style>
-  
+
+</style>

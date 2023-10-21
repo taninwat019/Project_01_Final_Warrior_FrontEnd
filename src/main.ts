@@ -11,9 +11,6 @@ import '@/services/AxiosInterceptorSetup.ts'
 
 const app = createApp(App)
 
-const x = 'helxysx'
-console.log(x)
-
 app.use(createPinia())
 app.use(router)
 

@@ -48,7 +48,7 @@
           </router-link>
         </div>
         <div class="text-sm">
-          <router-link to="/admin" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white">
+          <router-link to="/login" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white">
             Log out
           </router-link>
         </div>
