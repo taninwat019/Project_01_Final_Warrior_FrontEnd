@@ -40,7 +40,7 @@ console.log(hasNextPage)
 <template>
   <main class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Advisee List</h1>
-     <router-link to="/addadvisor" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 inline-block">Add New Advisee</router-link>
+    <router-link to="/addadvisor" class="bg-FFC288 hover:bg-FEA82F text-white  py-2 px-4 rounded mb-4 inline-block">Add New Student</router-link>
     <div class="flex flex-row items-center justify-center mb-4">
       <input class="search-input" type="text" placeholder="Search students"/>
     </div>

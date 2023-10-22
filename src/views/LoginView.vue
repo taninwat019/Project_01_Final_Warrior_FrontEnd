@@ -1,42 +1,40 @@
 <template>
   <div class="container">
-      <div class="title">Login</div>
-      
-      <form @submit.prevent="onSubmit">
-        <div class="user-details">
-          <div class="input-box">
-            <span class="details">ID </span>
-            <input v-model="email" type="text" id="id" placeholder="ID" required>
-          </div>
-          <div class="input-box">
-            <span class="details">Password </span>
-            <input v-model="password" type="password" id="password" placeholder="password" required />
-          </div>
-        </div>
-        <div class="button">
-          <input type="submit" value="Login">
-        </div>
-        <span class="details">Don't have account? </span><a class="register" href="Register">Register</a>
-      </form>
-    </div>
+    <div class="title">Login</div>
 
+    <form @submit.prevent="onSubmit">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">ID </span>
+          <input v-model="email" type="text" id="id" placeholder="ID" required>
+        </div>
+        <div class="input-box">
+          <span class="details">Password </span>
+          <input v-model="password" type="password" id="password" placeholder="password" required />
+        </div>
+      </div>
+
+      <div id="flashMessage" class="mb-2 animate-pulse text-center text-base font-fig bg-red-500 font-fig text-white">
+        <h4 v-if="flashMessage">{{ flashMessage }}</h4>
+      </div>
+
+      <div class="button">
+        <input type="submit" value="Login">
+      </div>
+      <span class="details">Don't have account? </span><a class="register" href="Register">Register</a>
+    </form>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useField, useForm } from 'vee-validate';
 import { useAuthStore } from '@/stores/auth';
-import { useMessageStore } from '@/stores/message';
 import { useRouter } from 'vue-router';
-import { storeToRefs } from 'pinia'
-
-const storeMessage = useMessageStore()
-const { message } = storeToRefs(storeMessage)
 
 export default defineComponent({
   setup() {
-    const authStore = useAuthStore(); 
-    const storeMessage = useMessageStore();
+    const authStore = useAuthStore();
     const router = useRouter();
 
     const { handleSubmit } = useForm();
@@ -44,24 +42,23 @@ export default defineComponent({
     const { value: email } = useField('email');
     const { value: password } = useField('password');
 
+    let flashMessage = '';
+
     const onSubmit = handleSubmit(async () => {
       try {
         const response = await authStore.login(email.value, password.value);
         console.log('Login response:', response);
-        storeMessage.updateMessage('Login successful');
-      // setTimeout(() => {
-      //   storeMessage.resetMessage()
-      // }, 1000)
-      // setTimeout(() => {
-        
-        // If login is successful, redirect to the desired page
-        router.push({ name: 'student-list' });
-      // }, 1000)
+        flashMessage = 'Login successful'; // Set the flash message
+        setTimeout(() => {
+          flashMessage = ''; // Clear the flash message after a certain time
+        }, 3000);
+
+        router.push({ name: 'student-list' }); // Redirect to the desired page
       } catch (error) {
         console.error('Error during login:', error);
-        storeMessage.updateMessage('Could not log in');
+        flashMessage = 'Could not log in'; // Set the error message
         setTimeout(() => {
-          storeMessage.resetMessage();
+          flashMessage = ''; // Clear the flash message after a certain time
         }, 3000);
       }
     });
@@ -69,13 +66,12 @@ export default defineComponent({
     return {
       email,
       password,
-      onSubmit
+      onSubmit,
+      flashMessage,
     };
-  }
+  },
 });
-
 </script>
-
 
 <style scoped>
 *{
@@ -190,5 +186,4 @@ export default defineComponent({
   .register {
     color: #FFC288;
   }
-
 </style>

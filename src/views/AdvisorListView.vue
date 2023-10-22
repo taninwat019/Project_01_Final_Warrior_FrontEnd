@@ -39,7 +39,7 @@ const limit = ref(props.limit)
 <template>
   <main class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">Teacher List</h1>
-    <router-link to="/addadvisor" class="bg-FFC288 hover:bg-FEA82F text-white font-bold py-2 px-4 rounded mb-4 inline-block">Add New Teacher</router-link>
+    <router-link to="/register" class="bg-FFC288 hover:bg-FEA82F text-white font-bold py-2 px-4 rounded mb-4 inline-block">Add New Teacher</router-link>
     <div class="flex flex-col items-center">
       <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
         <AdvisorCard

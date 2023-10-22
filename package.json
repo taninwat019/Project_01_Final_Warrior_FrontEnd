@@ -12,6 +12,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@smartweb/vue-flash-message": "^0.6.10",
     "@types/nprogress": "^0.2.0",
     "axios": "^1.4.0",
     "concurrently": "^8.2.0",

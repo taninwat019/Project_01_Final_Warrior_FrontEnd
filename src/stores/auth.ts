@@ -74,5 +74,27 @@ export const useAuthStore = defineStore('auth', {
         throw error;
       }
     },
+    async advisorRegister(username:string, firstName:string, lastName:string, email:string, password:string) {
+      try {
+        const response = await apiClient.post('/api/v1/auth/advisor/register', {
+          firstname: firstName,
+          lastname: lastName,
+          email: email,
+          username: username,
+          password: password,
+        });
+        console.log('Advisor Registration response:', response);
+        // Assuming the response contains the access token and user role
+        this.token = response.data.access_token;
+        this.userRole = response.data.user_role;
+        localStorage.setItem('access_token', this.token as string);
+        localStorage.setItem('user_role', JSON.stringify(this.userRole));
+        return response;
+      } catch (error) {
+        console.error('Advisor Registration error:', error);
+        throw error;
+      }
+    }
+    
   }
 });
