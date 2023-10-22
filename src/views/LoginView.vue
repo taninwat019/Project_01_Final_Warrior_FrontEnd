@@ -32,7 +32,7 @@ import { useRouter } from 'vue-router';
 
 export default defineComponent({
   setup() {
-    const authStore = useAuthStore();
+    const authStore = useAuthStore(); 
     const storeMessage = useMessageStore();
     const router = useRouter();
 

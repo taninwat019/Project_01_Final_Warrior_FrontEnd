@@ -48,23 +48,47 @@
           </router-link>
         </div>
         <div class="text-sm">
-          <router-link to="/login" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white">
-            Log out
-          </router-link>
+          <a href="/login" class="nav-link hover:cursor-pointer hover:text-white" @click="logout"> LogOut </a>
         </div>
       </div>
     </nav>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      isOpen: false,
-    };
-  },
-};
+<script setup lang="ts">
+import { computed, ref, onMounted, onUnmounted } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router';
+import { useMessageStore } from '@/stores/message'
+import { storeToRefs } from 'pinia'
+import { useAuthStore } from '@/stores/auth.ts'
+
+const store = useMessageStore()
+const { message } = storeToRefs(store)
+const authStore = useAuthStore()
+const router = useRouter()
+const token = localStorage.getItem('access_token')
+const userRole = localStorage.getItem('user_role')
+const id = localStorage.getItem('id')
+
+function logout() {
+  authStore.logout()
+  router.push({ name: 'login' })
+}
+
+if (token && userRole && id) {
+  authStore.reload(token, JSON.parse(userRole), id)
+} else {
+  authStore.logout()
+}
+
+// export default {
+//   data() {
+//     return {
+//       isOpen: false,
+//     };
+//   },
+// };
 </script>
 
 <style>
