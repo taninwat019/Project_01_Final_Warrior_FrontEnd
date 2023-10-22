@@ -53,13 +53,13 @@ export const useAuthStore = defineStore('auth', {
       this.token = token;
       this.userRole = userRole;
     },
-    async register(firstName: string, surName: string,email: string, userName: string, password: string) {
+    async register(firstName: string, lastName: string,email: string, username: string, password: string) {
       try {
         const response = await apiClient.post('/api/v1/auth/register', {
           firstname: firstName,
-          surname: surName,
+          lastname: lastName,
           email: email,
-          username: userName,
+          username: username,
           password: password,
         });
         console.log('Registration response:', response);

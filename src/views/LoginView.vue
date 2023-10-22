@@ -28,7 +28,10 @@ import { useField, useForm } from 'vee-validate';
 import { useAuthStore } from '@/stores/auth';
 import { useMessageStore } from '@/stores/message';
 import { useRouter } from 'vue-router';
+import { storeToRefs } from 'pinia'
 
+const storeMessage = useMessageStore()
+const { message } = storeToRefs(storeMessage)
 
 export default defineComponent({
   setup() {
@@ -45,8 +48,15 @@ export default defineComponent({
       try {
         const response = await authStore.login(email.value, password.value);
         console.log('Login response:', response);
+        storeMessage.updateMessage('Login successful');
+      // setTimeout(() => {
+      //   storeMessage.resetMessage()
+      // }, 1000)
+      // setTimeout(() => {
+        
         // If login is successful, redirect to the desired page
         router.push({ name: 'student-list' });
+      // }, 1000)
       } catch (error) {
         console.error('Error during login:', error);
         storeMessage.updateMessage('Could not log in');

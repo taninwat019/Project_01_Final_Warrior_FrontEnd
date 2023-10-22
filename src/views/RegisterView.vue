@@ -16,10 +16,10 @@ const onSubmit = handleSubmit(async (values) => {
   try {
     console.log("hh")
     await authStore.register(
-      values.userName,
       values.firstName,
-      values.surName,
+      values.lastName,
       values.email,
+      values.username,
       values.password
     );
     router.push({ name: 'student-list' });
@@ -35,10 +35,10 @@ const onSubmit = handleSubmit(async (values) => {
   }
 });
 
-const { value: userName } = useField<string>('userName')
 const { value: firstName } = useField<string>('firstName')
-const { value: surName } = useField<string>('lastName')
+const { value: lastName } = useField<string>('lastName')
 const { value: email } = useField<string>('email')
+const { value: username } = useField<string>('username')
 const { value: password } = useField<string>('password')
 </script>
 
@@ -49,12 +49,12 @@ const { value: password } = useField<string>('password')
         <form @submit.prevent="onSubmit">
           <div class="user-details">
             <div class="input-box">
-              <span class="details">Name </span>
-              <input type="text" v-model="firstName" placeholder="Name" required>
+              <span class="details">Firstname </span>
+              <input type="text" v-model="firstName" placeholder="Firstname" required>
             </div>
             <div class="input-box">
-              <span class="details">Surname </span>
-              <input type="text" v-model="surName" placeholder="Surname" required>
+              <span class="details">Lastname </span>
+              <input type="text" v-model="lastName" placeholder="LastName" required>
             </div>
             <div class="input-box">
               <span class="details">Email </span>
@@ -62,7 +62,7 @@ const { value: password } = useField<string>('password')
             </div>
             <div class="input-box">
               <span class="details">Username </span>
-              <input type="text" v-model="userName" placeholder="Username" required>
+              <input type="text" v-model="username" placeholder="Username" required>
             </div>
             <div class="input-box">
               <span class="details">Password </span>
