@@ -52,6 +52,27 @@ export const useAuthStore = defineStore('auth', {
     reload(token: string, userRole: string[]) {
       this.token = token;
       this.userRole = userRole;
-    }
+    },
+    async register(firstName: string, surName: string,email: string, userName: string, password: string) {
+      try {
+        const response = await apiClient.post('/api/v1/auth/register', {
+          firstname: firstName,
+          surname: surName,
+          email: email,
+          username: userName,
+          password: password,
+        });
+        console.log('Registration response:', response);
+        // Assuming the response contains the access token and user role
+        this.token = response.data.access_token;
+        this.userRole = response.data.user_role;
+        localStorage.setItem('access_token', this.token as string);
+        localStorage.setItem('user_role', JSON.stringify(this.userRole));
+        return response;
+      } catch (error) {
+        console.error('Registration error:', error);
+        throw error;
+      }
+    },
   }
 });

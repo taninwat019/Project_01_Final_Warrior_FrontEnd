@@ -1,94 +1,72 @@
-<script lang="ts">
-import type { StudentItem } from '@/type';
+<script setup lang="ts">
+import { useField, useForm } from 'vee-validate'
+import { useAuthStore } from '@/stores/auth'
+import { useRouter } from 'vue-router'
+import { useMessageStore } from '@/stores/message'
 
-  export default {
-    data() {
-      return {
-        student: {
-          id: 0,
-          name: '',
-          surname: '',
-          department: '',
-          password: '',
-          image: '',
-        }
-      };
-    },
-    methods: {
-    registerStudent() {
-      // Create an instance of the StudentItem interface and populate it with the form data
-      const newStudent: StudentItem = {
-        id: this.student.id,
-        name: this.student.name,
-        surname: this.student.surname,
-        image: this.student.image, // Assign the image data
-        advisorId: '', // You may need to provide values for these properties
-        courseId: [],
-      };
+const authStore = useAuthStore()
+const router = useRouter()
+const storeMessage = useMessageStore()
 
-      // You can now save the 'newStudent' data to your database or API here
-      // Example code to save to the database:
-      // saveToDatabase(newStudent);
+const { message } = storeMessage
 
-      console.log('Student registered:', newStudent);
+const { handleSubmit } = useForm()
 
-      // Reset the form fields
-      this.student = {
-        id: 0,
-        name: '',
-        surname: '',
-        department: '',
-        password: '',
-        image: '', // Clear the image input
-      };
-    },
-    handleImageUpload(event: Event) {
-      const fileInput = event.target as HTMLInputElement;
-      if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-        reader.onload = () => {
-          this.student.image = reader.result as string;
-        };
-        reader.readAsDataURL(fileInput.files[0]);
-      }
-    }
-    }
-  };
+const onSubmit = handleSubmit(async (values) => {
+  try {
+    console.log("hh")
+    await authStore.register(
+      values.userName,
+      values.firstName,
+      values.surName,
+      values.email,
+      values.password
+    );
+    router.push({ name: 'student-list' });
+    storeMessage.updateMessage('Registration successful');
+    setTimeout(() => {
+      storeMessage.resetMessage();
+    }, 4000);
+  } catch (error) {
+    storeMessage.updateMessage('could not register');
+    setTimeout(() => {
+      storeMessage.resetMessage();
+    }, 3000);
+  }
+});
+
+const { value: userName } = useField<string>('userName')
+const { value: firstName } = useField<string>('firstName')
+const { value: surName } = useField<string>('lastName')
+const { value: email } = useField<string>('email')
+const { value: password } = useField<string>('password')
 </script>
 
 <template>
     <div class="container">
       <div class="title">Registration</div>
       <div class="content">
-        <form @submit.prevent="registerStudent">
+        <form @submit.prevent="onSubmit">
           <div class="user-details">
             <div class="input-box">
-              <span class="details">ID </span>
-              <input type="text" v-model="student.id" placeholder="ID" required>
-            </div>
-            <div class="input-box">
               <span class="details">Name </span>
-              <input type="text" v-model="student.name" placeholder="Name" required>
+              <input type="text" v-model="firstName" placeholder="Name" required>
             </div>
             <div class="input-box">
               <span class="details">Surname </span>
-              <input type="text" v-model="student.surname" placeholder="Surname" required>
+              <input type="text" v-model="surName" placeholder="Surname" required>
             </div>
             <div class="input-box">
-              <span class="details">Department </span>
-              <input type="text" v-model="student.department" placeholder="Department" required>
+              <span class="details">Email </span>
+              <input type="text" v-model="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Username </span>
+              <input type="text" v-model="userName" placeholder="Username" required>
             </div>
             <div class="input-box">
               <span class="details">Password </span>
-              <input type="password" v-model="student.password" placeholder="Password" required>
-            </div>
-            <div class="input-box">
-              <span class="details">Confirm Password </span>
-              <input type="password" placeholder="Confirm Password" required>
-            </div>
-            <div class="input-box-img">
-              <label for="img">Profile image </label>
-              <input type="file" id="img" name="img" accept="image/*" @change="handleImageUpload">
+              <input type="password" v-model="password" placeholder="Password" required>
             </div>
           </div>
           

@@ -43,7 +43,6 @@ export default defineComponent({
 
     const onSubmit = handleSubmit(async () => {
       try {
-        console.log("hh")
         const response = await authStore.login(email.value, password.value);
         console.log('Login response:', response);
         // If login is successful, redirect to the desired page
