@@ -101,7 +101,7 @@
 import { ref } from 'vue';
 import { useMessageStore } from '@/stores/message';
 import { storeToRefs } from 'pinia';
-import { useAuthStore } from '@/stores/auth.ts';
+import { useAuthStore } from '@/stores/auth';
 import { useRouter } from 'vue-router';
 
 const isOpen = ref(false);
