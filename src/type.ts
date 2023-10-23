@@ -23,5 +23,7 @@ export interface Advisor {
   id: string;
   name: string;
   surname: string;
+  dept: string;
+  position: string;
   image: string;
 }

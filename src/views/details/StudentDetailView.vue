@@ -14,7 +14,7 @@
             <span class="font-semibold">Department:</span> {{ student.dept }}
           </p>
           <div class="text-lg text-gray-600 mb-4">
-            <span class="font-semibold">Enrolled Courses:</span>
+            
             <ul class="list-disc list-inside">
               <li v-for="advisorId in student.advisorId" :key="advisorId" class="mb-2">{{ advisorId }}</li>
             </ul>

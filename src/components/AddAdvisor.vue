@@ -42,50 +42,167 @@ const { value: password } = useField<string>('password')
 </script>
 
 <template>
-  <div class="container mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-4">Add New Teacher Information</h1>
-    <form @submit.prevent="onSubmit">
-    <div class="mb-4">
-      <label for="firstName" class="block text-gray-700 text-sm font-bold mb-2">First Name:</label>
-      <input v-model="firstName" type="text" id="firstName" class="w-full border-2 border-gray-300 p-2 rounded" placeholder="First name">
+ <div class="container">
+      <div class="title">Advisor Registration</div>
+      <div class="content">
+        <form @submit.prevent="onSubmit">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Firstname </span>
+              <input type="text" v-model="firstName" placeholder="Firstname" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Lastname </span>
+              <input type="text" v-model="lastName" placeholder="LastName" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Email </span>
+              <input type="text" v-model="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Username </span>
+              <input type="text" v-model="username" placeholder="Username" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Password </span>
+              <input type="password" v-model="password" placeholder="Password" required>
+            </div>
+          </div>
+          
+          <div class="button">
+            <input type="submit" value="Register">
+          </div>
+        </form>
+      </div>
     </div>
-    <div class="mb-4">
-      <label for="lastName" class="block text-gray-700 text-sm font-bold mb-2">Last Name:</label>
-      <input v-model="lastName" type="text" id="lastName" class="w-full border-2 border-gray-300 p-2 rounded" placeholder="Last name">
-    </div>
-    <div class="mb-4">
-      <label for="position" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
-      <input v-model="email" type="text" id="position" class="w-full border-2 border-gray-300 p-2 rounded" placeholder="Email">
-    </div>
-    <div class="mb-4">
-      <label for="position" class="block text-gray-700 text-sm font-bold mb-2">Username:</label>
-      <input v-model="username" type="text" id="position" class="w-full border-2 border-gray-300 p-2 rounded" placeholder="Username">
-    </div>
-    <div class="mb-4">
-      <label for="position" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
-      <input v-model="password" type="password" id="position" class="w-full border-2 border-gray-300 p-2 rounded" placeholder="Password">
-    </div>
-    <!-- <div class="mb-4">
-      <label for="image" class="block text-gray-700 text-sm font-bold mb-2">Image:</label>
-      <input type="file" @change="onFileChange" id="image" class="w-full border-2 border-gray-300 p-2 rounded">
-    </div>
-    <img v-if="image" :src="image" class="mb-4 w-full rounded"> -->
-    <div class="flex justify-between">
-      <router-link to="/advisor" class="text-blue-500 inline-block"><button @click="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Back to Admin Page</button></router-link>
-      <button @click="addTeacher" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Information</button>
-    </div>
-  </form>
-  </div>
 </template>
 
 
-<style>
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-button {
-  margin-top: 1rem;
-}
-</style>
+<style scoped>
+  *{
+    color: black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+  }
+  body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #1F2937;
+  }
+  .container{
+    max-width: 700px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    margin: auto;
+  }
+  .container .title{
+    font-size: 25px;
+    font-weight: 500;
+  }
+  .container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 12px 0;
+  }
+  form .user-details .input-box{
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+  }
+  .user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .user-details .input-box input{
+    height: 45px;
+    width: 95%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  .user-details .input-box input:focus,
+  .user-details .input-box input:valid{
+    border-color:  #FFC288;
+  }
+  .user-details .input-box-img .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+  .user-details .input-box-img input{
+    height: 45px;
+    width: auto;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    padding-top: 8px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+  }
+  .user-details .input-box input:focus,
+  .user-details .input-box input:valid{
+    border-color:  #FFC288;
+  }
+  
+  form input[type="radio"]{
+    display: none;
+  }
+  form .button{
+    height: 45px;
+    margin: 45px 0;
+  }
+  form .button input{
+    height: 100%;
+    width: 90%;
+    color: #fff ;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: #FFC288;
+  }
+  form .button input:hover{
+    background: #ffac5f;
+  }
+  @media(max-width: 584px){
+   .container{
+    max-width: 100%;
+  }
+  form .user-details .input-box{
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    form .category{
+      width: 100%;
+    }
+    .content form .user-details{
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+    .user-details::-webkit-scrollbar{
+      width: 5px;
+    }
+    }
+    @media(max-width: 459px){
+    .container .content .category{
+      flex-direction: column;
+    }
+  }
+  .login {
+    color: #FFC288;
+  }
+  </style>

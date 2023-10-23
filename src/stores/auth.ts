@@ -85,10 +85,6 @@ export const useAuthStore = defineStore('auth', {
         });
         console.log('Advisor Registration response:', response);
         // Assuming the response contains the access token and user role
-        this.token = response.data.access_token;
-        this.userRole = response.data.user_role;
-        localStorage.setItem('access_token', this.token as string);
-        localStorage.setItem('user_role', JSON.stringify(this.userRole));
         return response;
       } catch (error) {
         console.error('Advisor Registration error:', error);

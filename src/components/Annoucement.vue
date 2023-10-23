@@ -1,7 +1,6 @@
 <template>
     <div class="post-container">
       <div class="post-form">
-        <textarea v-model="postText" placeholder="Comment here." class="post-textarea"></textarea>
         <input type="file" @change="handleFileChange" accept="image/*" class="file-input">
         <button @click="submitPost" class="post-button">Post</button>
       </div>

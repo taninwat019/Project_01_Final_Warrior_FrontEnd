@@ -30,18 +30,18 @@ defineProps({
       </div>
       <div class="mb-6">
         <label for="department" class="block text-gray-700 text-xl font-bold mb-2">Department:</label>
-        <h2 class="text-base font-semibold mb-2">{{ advisor?.department }}</h2>
+        <h2 class="text-base font-semibold mb-2">{{ advisor?.dept }}</h2>
       </div>
       <div class="mb-6">
         <label for="position" class="block text-gray-700 text-xl font-bold mb-2">Position:</label>
         <h2 class="text-base font-semibold mb-2">{{ advisor?.position }}</h2>
       </div>
       <div class="flex justify-center mt-6">
-        <router-link to="/advisor" class="text-blue-500 inline-block mx-4">
-          <button @click="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back</button>
+        <router-link to="/advisor" class="inline-block mx-4">
+          <button @click="" class="bg-FFC288 hover:bg-FEA82F text-white font-bold py-2 px-4 rounded">Back</button>
         </router-link>
         <router-link to="/advisee" class="text-blue-500 inline-block">
-          <button @click="" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Advisee</button>
+          <button @click="" class="bg-FFC288 hover:bg-FEA82F text-white font-bold py-2 px-4 rounded">Advisee</button>
         </router-link>
       </div>
       <Annoucement class=""></Annoucement>
