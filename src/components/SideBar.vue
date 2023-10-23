@@ -54,7 +54,7 @@
           <div class="flex flex-col lg:flex-row">
             <li v-if="authStore.userRole == 'ROLE_STUDENT'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
-              <RouterLink to="/">Student</RouterLink>
+              <RouterLink to="/student-profile">Student</RouterLink>
             </li>
             <li v-if="authStore.userRole == 'ROLE_STUDENT'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">

@@ -18,6 +18,7 @@ import AdviseeLayoutView from '@/views/details/AdviseeLayoutView.vue'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import AnnouncePage from '@/views/AnnouncePage.vue'
+import StudentProfile from '@/views/StudentProfile.vue'
 
 
 const router = createRouter({
@@ -211,6 +212,11 @@ const router = createRouter({
       name: 'register',
       component: RegisterView
     },
+    {
+      path: '/student-profile',
+      name: 'student-profile',
+      component: StudentProfile
+    }
     
   ],
   scrollBehavior(to, from, savedPosition) {
