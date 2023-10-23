@@ -68,7 +68,7 @@
             </li>
             <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
-              <RouterLink to="/advisor">Advisor</RouterLink>
+              <RouterLink to="/advisor-profile">Advisor</RouterLink>
             </li>
             <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">

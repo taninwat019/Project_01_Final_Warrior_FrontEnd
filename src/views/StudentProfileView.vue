@@ -14,7 +14,7 @@
               <span class="details">Advisor: Kikuri Hiroi</span><!-- {{ student.advisorId }} -->
             </div>
             <div class="button">
-              <router-link to="/Edit">
+              <router-link to="/edit-profile">
                 <input type="submit" value="Edit"><!-- Go to Edit Profile -->
               </router-link>
             </div>

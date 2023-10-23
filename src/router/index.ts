@@ -18,7 +18,9 @@ import AdviseeLayoutView from '@/views/details/AdviseeLayoutView.vue'
 import LoginView from '@/views/LoginView.vue'
 import RegisterView from '@/views/RegisterView.vue'
 import AnnouncePage from '@/views/AnnouncePage.vue'
-import StudentProfile from '@/views/StudentProfile.vue'
+import StudentProfileView from '@/views/StudentProfileView.vue'
+import EditProfileView from '@/views/EditProfileView.vue'
+import AdvisorProfileView from '@/views/AdvisorProfileView.vue'
 
 
 const router = createRouter({
@@ -215,7 +217,17 @@ const router = createRouter({
     {
       path: '/student-profile',
       name: 'student-profile',
-      component: StudentProfile
+      component: StudentProfileView
+    },
+    {
+      path: '/edit-profile',
+      name: 'edit-profile',
+      component: EditProfileView
+    },
+    {
+      path: '/advisor-profile',
+      name: 'advisor-profile',
+      component: AdvisorProfileView
     }
     
   ],
