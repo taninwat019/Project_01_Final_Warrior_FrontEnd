@@ -40,7 +40,7 @@
           <div class="flex flex-col lg:flex-row">
             <li v-if="authStore.userRole == 'ROLE_ADMIN'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
-              <RouterLink to="/">Student</RouterLink>
+              <RouterLink to="/student">Student</RouterLink>
             </li>
             <li v-if="authStore.userRole == 'ROLE_ADMIN'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
@@ -81,15 +81,15 @@
         <div class="text-sm">
             <li v-if="authStore.userRole == 'ROLE_ADMIN'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
-              <a href="/login" class="nav-link hover:cursor-pointer" @click="logout"> LogOut </a>
+              <a href="/" class="nav-link hover:cursor-pointer" @click="logout"> LogOut </a>
             </li> 
             <li v-if="authStore.userRole == 'ROLE_STUDENT'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
-              <a href="/login" class="nav-link hover:cursor-pointer" @click="logout"> LogOut </a>
+              <a href="/" class="nav-link hover:cursor-pointer" @click="logout"> LogOut </a>
             </li> 
             <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
-              <a href="/login" class="nav-link hover:cursor-pointer" @click="logout"> LogOut </a>
+              <a href="/" class="nav-link hover:cursor-pointer" @click="logout"> LogOut </a>
             </li> 
         </div>
       </div>

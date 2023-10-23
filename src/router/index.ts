@@ -25,7 +25,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '/student',
       name: 'student-list',
       component: StudentListView,
       props: (route) => ({
@@ -203,7 +203,7 @@ const router = createRouter({
       component: AnnouncePage
     },
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       component: LoginView
     },

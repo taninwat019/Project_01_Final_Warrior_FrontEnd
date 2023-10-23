@@ -28,7 +28,7 @@ function onSubmit() {
     <form class="comment-form" @submit.prevent="onSubmit">
       <textarea id="comment" v-model="form.content" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-stone-600"></textarea>
       <button class="mt-2 bg-65451F hover:bg-8D7B68 text-white py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-stone-600" type="submit">Submit</button>
-      <router-link to="/" class="text-blue-500 inline-block mx-4">
+      <router-link to="/student" class="text-blue-500 inline-block mx-4">
         <button class="mt-2 bg-65451F hover:bg-8D7B68 text-white py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-stone-600" type="submit"> Back </button>
       </router-link>
     </form>
