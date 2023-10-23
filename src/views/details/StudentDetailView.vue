@@ -11,12 +11,12 @@
             <span class="font-semibold">ID:</span> {{ student.id }}
           </p>
           <p class="text-lg text-gray-600 mb-2">
-            <span class="font-semibold">Department:</span> {{ student.department }}
+            <span class="font-semibold">Department:</span> {{ student.dept }}
           </p>
           <div class="text-lg text-gray-600 mb-4">
             <span class="font-semibold">Enrolled Courses:</span>
             <ul class="list-disc list-inside">
-              <li v-for="courseId in student.courseId" :key="courseId" class="mb-2">{{ courseId }}</li>
+              <li v-for="advisorId in student.advisorId" :key="advisorId" class="mb-2">{{ advisorId }}</li>
             </ul>
           </div>
         </div>
