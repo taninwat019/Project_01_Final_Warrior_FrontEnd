@@ -40,6 +40,10 @@
           <div class="flex flex-col lg:flex-row">
             <li v-if="authStore.userRole == 'ROLE_ADMIN'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
+              <RouterLink to="/about">About</RouterLink>
+            </li>
+            <li v-if="authStore.userRole == 'ROLE_ADMIN'"
+              class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
               <RouterLink to="/student">Student</RouterLink>
             </li>
             <li v-if="authStore.userRole == 'ROLE_ADMIN'"
@@ -54,6 +58,10 @@
           <div class="flex flex-col lg:flex-row">
             <li v-if="authStore.userRole == 'ROLE_STUDENT'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
+              <RouterLink to="/about">About</RouterLink>
+            </li>
+            <li v-if="authStore.userRole == 'ROLE_STUDENT'"
+              class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
               <RouterLink to="/student-profile">Student</RouterLink>
             </li>
             <li v-if="authStore.userRole == 'ROLE_STUDENT'"
@@ -64,7 +72,7 @@
           <div class="flex flex-col lg:flex-row">
             <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
-              <RouterLink to="/advisee">Advisee</RouterLink>
+              <RouterLink to="/about">About</RouterLink>
             </li>
             <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
               class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">

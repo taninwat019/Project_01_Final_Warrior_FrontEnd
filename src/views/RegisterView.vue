@@ -22,7 +22,7 @@ const onSubmit = handleSubmit(async (values) => {
       values.username,
       values.password
     );
-    router.push({ name: 'student-list' });
+    router.push({ name: 'about' });
     storeMessage.updateMessage('Registration successful');
     setTimeout(() => {
       storeMessage.resetMessage();

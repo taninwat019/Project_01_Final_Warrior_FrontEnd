@@ -53,7 +53,7 @@ export default defineComponent({
           flashMessage = ''; // Clear the flash message after a certain time
         }, 3000);
 
-        router.push({ name: 'student-list' }); // Redirect to the desired page
+        router.push({ name: 'about' }); // Redirect to the desired page
       } catch (error) {
         console.error('Error during login:', error);
         flashMessage = 'Could not log in'; // Set the error message
