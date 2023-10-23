@@ -88,8 +88,8 @@ const router = createRouter({
     {
       children:[
         {
-          path: '/register',
-          name: 'addadvisor',
+          path: '/advisor-register',
+          name: 'advisor-register',
           component: AddAdvisor
         },
       ]

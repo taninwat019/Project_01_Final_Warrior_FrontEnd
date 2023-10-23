@@ -61,7 +61,22 @@
               <RouterLink to="/announcement">Announcement</RouterLink>
             </li>
           </div>
+          <div class="flex flex-col lg:flex-row">
+            <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
+              class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
+              <RouterLink to="/advisee">Advisee</RouterLink>
+            </li>
+            <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
+              class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
+              <RouterLink to="/advisor">Advisor</RouterLink>
+            </li>
+            <li v-if="authStore.userRole == 'ROLE_ADVISOR'"
+              class="font-dm mb-2 lg:mb-0 lg:mr-4 hover:bg-white p-3 rounded-md flex items-center">
+              <RouterLink to="/announcement">Announcement</RouterLink>
+            </li>
+          </div>
         </div>
+        
 
         <div class="text-sm">
             <li v-if="authStore.userRole == 'ROLE_ADMIN'"
