@@ -16,7 +16,7 @@ defineProps({
   <div class="max-w-md mx-auto p-4 bg-gray-100 rounded-lg shadow-md">
     <div class="text-center">
       <div class="mb-4">
-        <img :src="advisor?.image" alt="advisor image" class="rounded-lg shadow-md custom-image">
+        <img :src="advisor?.images" alt="advisor image" class="rounded-lg shadow-md custom-image">
       </div>
     </div>
     <div class="text-center">

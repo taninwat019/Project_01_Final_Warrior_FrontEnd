@@ -10,7 +10,7 @@ export interface StudentItem {
   id: number
   name: string
   surname: string
-  image: string
+  images: string
   dept: string
   advisorId: string
 }
@@ -25,5 +25,5 @@ export interface Advisor {
   surname: string;
   dept: string;
   position: string;
-  image: string;
+  images: string;
 }

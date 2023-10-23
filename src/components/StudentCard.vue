@@ -4,7 +4,7 @@
       :to="{ name: 'student-detail', params: { id: student?.id } }">
       <article class="w-full bg-white rounded-lg overflow-hidden hover:shadow-md h-96">
         <div class="relative w-full h-64 bg-cover bg-center">
-          <img :src="student?.image" :alt="student?.name" class="w-full h-full object-cover" />
+          <img :src="student?.images" :alt="student?.name" class="w-full h-full object-cover" />
         </div>
         <div class="p-4">
           <p class="text-xs text-gray-500 mb-1">

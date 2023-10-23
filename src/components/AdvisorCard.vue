@@ -4,7 +4,7 @@
       :to="{ name: 'advisor-detail', params: { id: advisor?.id } }">
       <article class="w-full bg-white rounded-lg overflow-hidden hover:shadow-md h-96">
         <div class="relative w-full h-64 bg-cover bg-center">
-          <img :src="advisor?.image" :alt="advisor?.name" class="w-full h-full object-cover" />
+          <img :src="advisor?.images" :alt="advisor?.name" class="w-full h-full object-cover" />
         </div>
         <div class="p-4">
           <p class="text-xs text-gray-500 mb-1">

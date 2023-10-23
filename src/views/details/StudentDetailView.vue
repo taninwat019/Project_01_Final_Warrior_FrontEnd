@@ -3,7 +3,7 @@
     <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md my-4">
       <div class="grid md:grid-cols-2 gap-4">
         <div class="w-full h-72 md:h-96 lg:h-80">
-          <img :src="student?.image" :alt="student?.name" class="w-full h-full object-cover rounded-lg" />
+          <img :src="student?.images" :alt="student?.name" class="w-full h-full object-cover rounded-lg" />
         </div>
         <div class="w-full p-6">
           <h2 class="text-3xl font-semibold mb-4">{{ student.name }} {{ student.surname }}</h2>

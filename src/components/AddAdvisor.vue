@@ -12,27 +12,25 @@ const { message } = storeMessage
 
 const { handleSubmit } = useForm()
 
-const onSubmit = handleSubmit(async (values) => {
-  try {
-    await authStore.advisorRegister(
-      values.firstName,
-      values.lastName,
-      values.email,
-      values.username,
-      values.password
-    );
-    router.push({ name: 'advisor-list' });
-    storeMessage.updateMessage('Registration successful');
-    setTimeout(() => {
-      storeMessage.resetMessage();
-    }, 4000);
-  } catch (error) {
-    storeMessage.updateMessage('could not register');
-    setTimeout(() => {
-      storeMessage.resetMessage();
-    }, 3000);
-  }
-});
+const onSubmit = handleSubmit((values) => {
+  authStore
+    .advisorRegister(values.username, values.firstName, values.lastName, values.email, values.password, values.images)
+    .then(() => {
+      storeMessage.updateMessage('Add Advisor Successfully');
+      setTimeout(() => {
+        storeMessage.resetMessage()
+      }, 4000)
+
+    })
+    .catch(() => {
+      storeMessage.updateMessage('could not add advisor')
+
+      setTimeout(() => {
+        storeMessage.resetMessage()
+      }, 3000)
+    })
+})
+
 
 const { value: firstName } = useField<string>('firstName')
 const { value: lastName } = useField<string>('lastName')
