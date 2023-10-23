@@ -11,8 +11,8 @@ export interface StudentItem {
   name: string
   surname: string
   image: string
+  dept: string
   advisorId: string
-  courseId: string[]
 }
 
 export interface CommentItem {
