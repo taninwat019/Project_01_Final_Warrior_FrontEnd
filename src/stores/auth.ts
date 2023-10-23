@@ -74,7 +74,7 @@ export const useAuthStore = defineStore('auth', {
         throw error;
       }
     },
-    async advisorRegister(username:string, firstName:string, lastName:string, email:string, password:string) {
+    async advisorRegister(firstName:string,lastName:string, email:string, username:string, password:string) {
       try {
         const response = await apiClient.post('/api/v1/auth/advisor/register', {
           firstname: firstName,

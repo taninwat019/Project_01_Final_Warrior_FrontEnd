@@ -73,7 +73,7 @@ const { value: password } = useField<string>('password')
           <div class="button">
             <input type="submit" value="Register">
           </div>
-          <span class="details">Already have an account? </span><a class="login" href="Login">Login</a>
+          <span class="details">Already have an account? </span><a class="login" href="/">Login</a>
         </form>
       </div>
     </div>
