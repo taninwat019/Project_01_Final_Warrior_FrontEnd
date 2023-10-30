@@ -15,7 +15,7 @@
       </div>
 
       <div id="flashMessage" class="mb-2 animate-pulse text-center text-base font-fig bg-red-500 font-fig text-white">
-        <h4 v-if="!(message.message.value === '')">{{ message }}</h4>
+        <h4 v-if="!(message.message.value === '')">{{ message.message.value }}</h4>
       </div>
 
       <div class="button">
