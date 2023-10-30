@@ -46,7 +46,7 @@ export default defineComponent({
 
     const onSubmit = handleSubmit(async () => {
       try {
-        const response = await authStore.login(email.value, password.value);
+        const response = await authStore.login(email.value as string, password.value as string);
         console.log('Login response:', response);
         flashMessage = 'Login successful'; // Set the flash message
         setTimeout(() => {
